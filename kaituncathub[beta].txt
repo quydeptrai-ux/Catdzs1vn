@@ -1,16 +1,16 @@
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 
-getgenv().Faster = { 
+_G.Faster = { 
     ['CDK Super Fast'] = true, -- Spawn Admin / เสกแอดมิน
     ['Buy Color Haki'] = 3 -- Legendary Haki Max 3
 }
 
-getgenv().RAM = { -- Log Des 
+_G.RAM = { -- Log Des 
     ['Enabled'] = false, 
     ['Delay'] = 600 
 }
 
-getgenv().Setting = { -- Setting Script / ตั้งค่าสคริปต์
+_G.Settings = { -- Setting Script / ตั้งค่าสคริปต์
     ['FPS Booster'] = _G.Setting['FPS Booster'],
     ['White Screen'] = true,
     ['Disible Gui'] = _G.Setting['Close Ui'],
@@ -19,7 +19,7 @@ getgenv().Setting = { -- Setting Script / ตั้งค่าสคริป�
     ['Rejoin'] = true
 }
 
-getgenv().Quest = { -- Farm Quest / ทำเควส
+_G.Quest = { -- Farm Quest / ทำเควส
     ['RGB Haki'] = _G.Quest['RGB Aura Haki'],
     ['Evo Race'] = {
         ['Enabled'] = true, 
@@ -34,15 +34,15 @@ getgenv().Quest = { -- Farm Quest / ทำเควส
     ['Quest Race V4'] = _G.Quest['Pull Lever'] 
 }
 if _G.Race['Lock Race'] then
-	--getgenv().Quest['Evo Race']['Select Race'][1] = tostring(game.Players.LocalPlayer.Data.Race.Value)
+	--_G.Quest['Evo Race']['Select Race'][1] = tostring(game.Players.LocalPlayer.Data.Race.Value)
 end
-getgenv().Fruit = { -- Select Fruit / เลือกผลที่ต้องการ
+_G.Fruit = { -- Select Fruit / เลือกผลที่ต้องการ
     ['Main'] = _G.Fruit['Main Fruit'],
     ['Select Fruit'] = _G.Fruit['Select Fruit'], 
     ['Bring Fruit'] = true 
 }
 
-getgenv().Melee = { -- Farm Melee / ฟามหมัด
+_G.Melee = { -- Farm Melee / ฟามหมัด
     ['Superhuman'] = true,
     ['Death Step'] = true,
     ['Sharkman Karate'] = true,
@@ -51,11 +51,11 @@ getgenv().Melee = { -- Farm Melee / ฟามหมัด
     ['Godhuman'] = _G.Melee['Godhuman']
 }
 
-getgenv().Sword = _G.Sword 
+_G.Sword = _G.Sword 
 
-getgenv().Gun = _G.Gun
+_G.Gun = _G.Gun
 
-getgenv().Mastery = { -- Farm Mastery / ฟามมาสเตอรี่
+_G.Mastery = { -- Farm Mastery / ฟามมาสเตอรี่
     ['Melee'] = _G.Mastery['Melee'],
     ['Fruit'] = _G.Mastery['Fruit'],
 
@@ -92,33 +92,33 @@ _G.On_Next_Generation = true
 if _G.On_Next_Generation then
     _G.Switch_Hub_Series_R = true
     _G.Quest = {
-        ['RGB'] = getgenv().Quest['RGB Haki']
+        ['RGB'] = _G.Quest['RGB Haki']
     }
-    if getgenv().Quest['Evo Race']['Evo V3'] then
+    if _G.Quest['Evo Race']['Evo V3'] then
 		_G.Quest['Evo Race V1'] = true
 		_G.Quest['Evo Race V2'] = true
 		_G.Quest['Evo Race V3'] = true
     end
     _G.Main = {
-        ['FPS Booster'] = getgenv().Setting['FPS Booster'],
-        ['White Screen'] = getgenv().Setting['White Screen'],
-        ['Close Ui'] = getgenv().Setting['Disible Gui'],
-        ['AFK Check'] = getgenv().Setting['AFK Check'],
-        ['Lock Fruit'] = getgenv().Setting['Lock Fruit'],
-        ['Rejoin'] = getgenv().Setting['Rejoin'],
-        ['Bring Fruit'] = getgenv().Fruit['Bring Fruit'],
-        ['Kill Boss'] = getgenv().Quest['Kill Boss']
+        ['FPS Booster'] = _G.Settings['FPS Booster'],
+        ['White Screen'] = _G.Settings['White Screen'],
+        ['Close Ui'] = _G.Settings['Disible Gui'],
+        ['AFK Check'] = _G.Settings['AFK Check'],
+        ['Lock Fruit'] = _G.Settings['Lock Fruit'],
+        ['Rejoin'] = _G.Settings['Rejoin'],
+        ['Bring Fruit'] = _G.Fruit['Bring Fruit'],
+        ['Kill Boss'] = _G.Quest['Kill Boss']
     }
-    _G.Melee = getgenv().Melee
-    _G.Sword = getgenv().Sword
-    _G.Gun = getgenv().Gun
-    _G.Mastery = getgenv().Mastery
+    _G.Melee = _G.Melee
+    _G.Sword = _G.Sword
+    _G.Gun = _G.Gun
+    _G.Mastery = _G.Mastery
     _G.Fruit_Main = { -- เลือกผลหลักและเควสโมจิตื่น
-        ['Main'] = getgenv().Fruit['Main'],
-        ['Quest Dough Awaken'] = getgenv().Quest['Quest Dough Awaken']['Enabled'],
-        ['Fast Dough Awaken'] = getgenv().Quest['Quest Dough Awaken']['Fast Mode']
+        ['Main'] = _G.Fruit['Main'],
+        ['Quest Dough Awaken'] = _G.Quest['Quest Dough Awaken']['Enabled'],
+        ['Fast Dough Awaken'] = _G.Quest['Quest Dough Awaken']['Fast Mode']
     }
-    _G.Fruit = getgenv().Fruit['Select Fruit']
+    _G.Fruit = _G.Fruit['Select Fruit']
 end
 local Bijan = false
 local Bijan = loadstring(game:HttpGet("https://raw.githubusercontent.com/mondeef/s/main/README.lua"))()
@@ -679,7 +679,7 @@ if _G.Switch_Hub_Series_R then
 				end) 
 			end
 		end)
-		if getgenv().Setting['White Screen'] then
+		if _G.Settings['White Screen'] then
 			game:GetService("RunService"):Set3dRenderingEnabled(false)
 			togle_up = false
 		end
@@ -4631,7 +4631,7 @@ if _G.Switch_Hub_Series_R then
 	elseif Evo_Race_V1_H then
 		Race_S:Set(' Race : '..tostring(game.Players.LocalPlayer.Data.Race.Value)..' : 1')
 	end
-    if not table.find(getgenv().Quest['Evo Race']['Select Race'],tostring(game.Players.LocalPlayer.Data.Race.Value)) and _G.Race['Lock Race'] then
+    if not table.find(_G.Quest['Evo Race']['Select Race'],tostring(game.Players.LocalPlayer.Data.Race.Value)) and _G.Race['Lock Race'] then
 		Select_race_low  = true
     end
 	-- Quest
@@ -5403,7 +5403,7 @@ if _G.Switch_Hub_Series_R then
 									end
 								end
 							end
-						elseif update_new and God_Human_H and game.Players.LocalPlayer.Data.Level.Value >= 2550 and getgenv().Sword['Shark Anchor'] and not Shark_Anchor_H and Three_World then
+						elseif update_new and God_Human_H and game.Players.LocalPlayer.Data.Level.Value >= 2550 and _G.Sword['Shark Anchor'] and not Shark_Anchor_H and Three_World then
 							Auto_Farm_Shark_Anchor = true
 							List.Quest = true
 						elseif game.Players.LocalPlayer.Data.Level.Value >= 2550 and _G.Mastery['Sword'] and Three_World then
@@ -5544,7 +5544,7 @@ if _G.Switch_Hub_Series_R then
 							List.Quest = true
 						end
 					elseif game.Players.LocalPlayer.Data.Level.Value >= 2550 and Select_race_low and God_Human_H then
-						if table.find(getgenv().Quest['Evo Race']['Select Race'],tostring(game.Players.LocalPlayer.Data.Race.Value)) then
+						if table.find(_G.Quest['Evo Race']['Select Race'],tostring(game.Players.LocalPlayer.Data.Race.Value)) then
 							Select_race_low = false
 							Evo_Race_V1_H = false
 							Evo_Race_V2_H = false
@@ -6705,7 +6705,7 @@ if _G.Switch_Hub_Series_R then
 	Tool_Special_S:AddButton({
 		Name = ' Send Description RAM ',
 		Callback = function(vu)
-			if getgenv().RAM['Enabled'] then
+			if _G.RAM['Enabled'] then
 				--SetAlias(GetAlias())
 				--SetDescription(GetAll())
 			end
@@ -7976,7 +7976,7 @@ if _G.Switch_Hub_Series_R then
 								end
 								Set_Status_X(' Status : Check Quest')
                                 if Three_World then
-									if getgenv().Faster['CDK Super Fast'] and not Unlock_Tushita_Quest then
+									if _G.Faster['CDK Super Fast'] and not Unlock_Tushita_Quest then
 										for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 											if v.Name == "God's Chalice" then
 												List.Quest = true
@@ -8002,7 +8002,7 @@ if _G.Switch_Hub_Series_R then
 												Quest_Istand = 'God Dough Awaken'
 											end
 										end
-									elseif getgenv().Faster['CDK Super Fast'] and not Valkyrie_Helmet_H then
+									elseif _G.Faster['CDK Super Fast'] and not Valkyrie_Helmet_H then
 										for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 											if v.Name == "God's Chalice" then
 												List.Quest = true
@@ -11059,7 +11059,7 @@ if _G.Switch_Hub_Series_R then
 	spawn(function()
 		while wait(.3) do
 			pcall(function()
-				if Three_World and getgenv().Faster['CDK Super Fast'] then
+				if Three_World and _G.Faster['CDK Super Fast'] then
 					wait(2)
 					if check_color < 3 and game.Players.LocalPlayer.Data.Fragments.Value >= 7500 then
 						check_color = 0
