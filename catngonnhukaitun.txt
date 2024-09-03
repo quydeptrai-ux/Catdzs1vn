@@ -585,64 +585,93 @@ if _G.Cat_Hub_Series_R then
 		if game.CoreGui:FindFirstChild('SWP') then
 			game.CoreGui:FindFirstChild('SWP'):Destroy()
 		end
-local Luna = Instance.new("ScreenGui")
-local ToggleImgUi = Instance.new("ImageButton")
-local ToggleImgUiCorner = Instance.new("UICorner") -- Thêm UICorner mới cho ToggleImgUi
+ScreenGui = Instance.new("ScreenGui");
 
-Luna.Name = "SWP"
-Luna.Parent = game.CoreGui
-Luna.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Frame = Instance.new("Frame");
 
--- Cấu hình ToggleImgUi
-ToggleImgUi.Name = "ToggleImgUi"
-ToggleImgUi.Parent = Luna
-ToggleImgUi.Position = UDim2.new(0, 61, 0, 12)
-ToggleImgUi.Size = UDim2.new(0, 70, 0, 70) -- Đặt kích thước lớn hơn cho ToggleImgUi
-ToggleImgUi.Image = "rbxassetid://17425369757"
+UIStroke = Instance.new("UIStroke");
+UIGradient = Instance.new("UIGradient");
+UICorner = Instance.new("UICorner");
+TextLabel = Instance.new("TextLabel");
+UIGradient1 = Instance.new("UIGradient");
+TextLabel1 = Instance.new("TextLabel");
+UIGradient2 = Instance.new("UIGradient");
+ImageLabel = Instance.new("ImageButton");
+adiadi = true
+ImageLabel.Activated: Connect(function () 
+    game:GetService"RunService": Set3dRenderingEnabled(not a)
+    adiadi = not a
+end) 
 
--- Thêm UICorner cho ToggleImgUi để làm cho nó thành hình tròn
-ToggleImgUiCorner.CornerRadius = UDim.new(0, 35) -- Đặt CornerRadius bằng nửa chiều rộng hoặc chiều cao của hình ảnh (70/2)
-ToggleImgUiCorner.Parent = ToggleImgUi
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = game:GetService("CoreGui")
 
--- Cấu hình sự kiện Click cho ToggleImgUi
-ToggleImgUi.MouseButton1Click:Connect(function()
-    if togle_up then
-        ToggleImgUi.ImageTransparency = 0.3
-        uihide = true
-        game:GetService("CoreGui")["Cat Hub"].Enabled = false
-        game.Lighting.ExposureCompensation = 0
-        togle_up = false
-        wait()
-        ToggleImgUi.ImageTransparency = 0
-    else
-        ToggleImgUi.ImageTransparency = 0.3
-        uihide = true
-        game:GetService("CoreGui")["Cat Hub"].Enabled = true
-        game.Lighting.ExposureCompensation = -10
-        togle_up = true
-        wait()
-        ToggleImgUi.ImageTransparency = 0
-    end
-end)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.499250829, 0, 0.181725562, 0)
+Frame.Size = UDim2.new(0, 511, 0, 76)
+Frame.Parent = ScreenGui
 
--- Xóa 'Cat Hub C' nếu tồn tại
-if game.CoreGui:FindFirstChild('Cat Hub C') then
-    game.CoreGui:FindFirstChild('Cat Hub C'):Destroy()
-end
+UIStroke.Color = Color3.fromRGB(255, 255, 255)
+UIStroke.Thickness = 1.5
+UIStroke.Parent = Frame
 
--- Hàm click mô phỏng
-local function click(a)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X + a.AbsoluteSize.X / 2.5, a.AbsolutePosition.Y + 50, 0, true, a, 1)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X + a.AbsoluteSize.X / 2.5, a.AbsolutePosition.Y + 50, 0, false, a, 1)
-end
+UIGradient.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+UIGradient.Parent = UIStroke
 
--- Hàm kiểm tra ảnh
-function CheckPhoto(vu)
-    click(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.Sort)
-    wait(.2)
-    click(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.Sort.Dropdown[vu])
-    wait(.2)
-end
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Frame
+
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "Cat Hub Kaitun / gaytayðŸ˜­"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0199637525, 0, 0.276315689, 0)
+TextLabel.Size = UDim2.new(0, 489, 0, 11)
+TextLabel.Parent = Frame
+
+UIGradient1.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+UIGradient1.Parent = TextLabel
+
+TextLabel1.Font = Enum.Font.FredokaOne
+TextLabel1.Text = "Cat hub kaitun Script â€¢ .gg/"
+TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.TextSize = 20
+TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundTransparency = 1
+TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel1.BorderSizePixel = 0
+TextLabel1.Position = UDim2.new(0.0199637525, 0, 0.539473593, 0)
+TextLabel1.Size = UDim2.new(0, 489, 0, 22)
+TextLabel1.Parent = Frame
+
+UIGradient2.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+UIGradient2.Parent = TextLabel1
+
+ImageLabel.Image = "rbxassetid://"
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.448140889, 0, -0.473684222, 0)
+ImageLabel.Size = UDim2.new(0, 50, 0, 50)
+ImageLabel.Parent = Frame
 		function Load_Info(Name_X,Folder)
 			local keep_all_name = {}
 			local kp = 0
