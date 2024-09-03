@@ -16,16 +16,15 @@ getgenv().Setting = { -- Setting Script / ตั้งค่าสคริป�
     ['Disible Gui'] = _G.Setting['Close Ui'],
     ['Lock Fruit'] = 1000000,
     ['AFK Check'] = 150,
-    ['Rejoin'] = _G.Setting['Rejoin'],
+    ['Rejoin'] = true
 }
 
 getgenv().Quest = { -- Farm Quest / ทำเควส
     ['RGB Haki'] = _G.Quest['RGB Aura Haki'],
     ['Evo Race'] = {
-        
+        ['Enabled'] = true, 
         ['Select Race'] = _G.Race['Select Race'],
-        ['Evo V3'] = _G.Race['Evo Race V3'],
-        ['Enabled'] = true
+        ['Evo V3'] = _G.Race['Evo Race V3']
     },
     ['Quest Dough Awaken'] = { -- Dough Awaken + Mirror Fractal / ทำเควสโมจิตื่น + กระจก
         ['Enabled'] = _G.Quest['Quest Dough Awaken'],
